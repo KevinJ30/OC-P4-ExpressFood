@@ -13,11 +13,7 @@ use Faker\Factory;
 class FillMenus extends AbstractFill {
 
     /**
-     * Crée un utilisateur donnée dans la table
-     * 
-     * @param string $account_type : Type d'utilisateur que l'on souhaite créer
-     * @param string $number : Nombre de d'utilisateur à créer
-     * @param string $starIndex : L'index auquel doit démarrer l(ajout dans la table)
+     * Crée les menus dans la table
      * @return void
      **/
     public function createMenus(): void {
@@ -41,6 +37,11 @@ class FillMenus extends AbstractFill {
         echo $i . ' menus ont été ajoutés.' . "\n";
     }
 
+    /**
+     * Ajoute deux plat dans le menu
+     * @param int $menu_id : id du menu
+     * @return void
+     **/
     public function addRecipePlat(int $menu_id): void {
         for($i = 0; $i < 2; $i++) {
             $menuContent = [
@@ -58,6 +59,11 @@ class FillMenus extends AbstractFill {
         }
     }
 
+    /**
+     * Ajoute deux desserts dans le menu
+     * @param int $menu_id : Id du menu
+     * @return void
+     **/
     public function addRecipeDesserts(int $menu_id): void {
         for($i = 0; $i < 2; $i++) {
             $menuContent = [
@@ -76,11 +82,7 @@ class FillMenus extends AbstractFill {
     }
     
     /**
-     * Crée un utilisateur donnée dans la table
-     * 
-     * @param string $account_type : Type d'utilisateur que l'on souhaite créer
-     * @param string $number : Nombre de d'utilisateur à créer
-     * @param string $starIndex : L'index auquel doit démarrer l(ajout dans la table)
+     * Créer les contenu des menus
      * @return void
      **/
     public function createMenuContents(): void {
@@ -95,7 +97,7 @@ class FillMenus extends AbstractFill {
     }
 
     /**
-     * Remplie la base de données
+     * Vide et injecte les données dans la table
      **/
     public function fillTable() : void {
         $this->truncate('menus');

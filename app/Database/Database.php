@@ -6,6 +6,9 @@ namespace App\Database;
  **/
 class Database {
 
+    /**
+     * @var array : Configuration de la base de données.
+     **/
     private $configuration;
 
     /**
@@ -15,6 +18,9 @@ class Database {
         $this->configuration = $configuration;
     }
 
+    /**
+     * @return \PDO : instance de PDO
+     **/
     public function getDatabase(): \PDO {
         try {
             $pdo = new \PDO($this->configuration['driver'] . 

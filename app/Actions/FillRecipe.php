@@ -12,6 +12,9 @@ use Faker\Factory;
  **/
 class FillRecipe extends AbstractFill {
 
+    /**
+     * @var array : Rectte pré-construite
+     **/
     const RECIPES = [
         'PLATS' => [
             'Blanquette de veau',
@@ -31,11 +34,11 @@ class FillRecipe extends AbstractFill {
     ];
 
     /**
-     * Crée un utilisateur donnée dans la table
+     * Crée les recettes dans la table
      * 
-     * @param string $account_type : Type d'utilisateur que l'on souhaite créer
-     * @param string $number : Nombre de d'utilisateur à créer
-     * @param string $starIndex : L'index auquel doit démarrer l(ajout dans la table)
+     * @param string $recipe_type : Type d'utilisateur que l'on souhaite créer
+     * @param int $number : Nombre de d'utilisateur à créer
+     * @param int  $starIndex : L'index auquel doit démarrer l'ajout dans la table)
      * @return void
      **/
     public static function createRecipe(\PDO $database, string $recipe_type, int $number,int $startIndex): void {
@@ -62,7 +65,7 @@ class FillRecipe extends AbstractFill {
     }
 
     /**
-     * Remplie la base de données
+     * Vides et injectes les données dans la table
      **/
     public function fillTable() : void {
         $this->truncate('recipes');

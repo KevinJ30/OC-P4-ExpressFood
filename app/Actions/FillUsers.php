@@ -14,7 +14,7 @@ use App\Actions\AbstractFill;
 class FillUsers extends AbstractFill {
 
     /**
-     * Crée un utilisateur donnée dans la table
+     * Crée les utilisateurs dans la table
      * 
      * @param string $account_type : Type d'utilisateur que l'on souhaite créer
      * @param string $number : Nombre de d'utilisateur à créer
@@ -49,7 +49,7 @@ class FillUsers extends AbstractFill {
     }
 
     /**
-     * Remplie la base de données
+     * Vides et injectes les données dans la table
      **/
     public function fillTable() : void {
         $this->truncate('users');

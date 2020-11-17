@@ -12,11 +12,7 @@ use Faker\Factory;
  **/
 class Fillbags extends AbstractFill {
     /**
-     * Crée un utilisateur donnée dans la table
-     * 
-     * @param string $account_type : Type d'utilisateur que l'on souhaite créer
-     * @param string $number : Nombre de d'utilisateur à créer
-     * @param string $starIndex : L'index auquel doit démarrer l(ajout dans la table)
+     * Crée les sacs dans la table bags
      * @return void
      **/
     public function createBags(): void {
@@ -42,7 +38,7 @@ class Fillbags extends AbstractFill {
     }
 
     /**
-     * Remplie la base de données
+     * Vide et injecte les données dans la table
      **/
     public function fillTable() : void {
         $this->truncate('bags');

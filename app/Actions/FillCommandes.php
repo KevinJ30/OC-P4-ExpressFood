@@ -12,6 +12,9 @@ use Faker\Factory;
  **/
 class FillCommandes extends AbstractFill {
 
+    /**
+     * @return string : Retourne un status aléatoire pour les commandes
+     **/
     private function rand_status() : ?string {
         $rand = rand(0, 2);
 
@@ -31,11 +34,7 @@ class FillCommandes extends AbstractFill {
     }
 
     /**
-     * Crée un utilisateur donnée dans la table
-     * 
-     * @param string $account_type : Type d'utilisateur que l'on souhaite créer
-     * @param string $number : Nombre de d'utilisateur à créer
-     * @param string $starIndex : L'index auquel doit démarrer l(ajout dans la table)
+     * Créer les commande de la table commandes
      * @return void
      **/
     public function createCommandes(): void {
@@ -62,6 +61,11 @@ class FillCommandes extends AbstractFill {
         echo $i . ' commande ont été ajoutés.' . "\n";
     }
 
+    /**
+     * Créer le contenu des commandes
+     * 
+     * @return void 
+     */
     public function createCommandeContents() : void {
         $faker = Factory::create('fr_FR');
 
@@ -85,7 +89,8 @@ class FillCommandes extends AbstractFill {
     }
 
     /**
-     * Remplie la base de données
+     * Vide et injecte les données dans les tables
+     * commandes et commande_contents
      **/
     public function fillTable() : void {
         $this->truncate('commandes');
