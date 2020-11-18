@@ -47,7 +47,7 @@ class FillRecipe extends AbstractFill {
         for($i = 0; $i < $number; $i++) {
             $recipe = [
                 $startIndex + $i + 1,
-                self::RECIPES[strtoupper($recipe_type).'S'][rand(0, 4)],
+                self::RECIPES[strtoupper($recipe_type).'S'][$i],
                 $recipe_type,
                 $faker->sentence(100),
                 $faker->randomFloat(2, 1, 8)

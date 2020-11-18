@@ -34,11 +34,13 @@ class FillUsers extends AbstractFill {
                 sha1($faker->password),
                 date('Y-m-d'),
                 $account_type,
-                rand(1, 10)
+                rand(1, 10),
+                $faker->longitude,
+                $faker->latitude
             ];
             
             try{
-                $req = $database->prepare('INSERT INTO users(id, lastname, firstname, email, phone, password, created_at, account_type, adresse_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
+                $req = $database->prepare('INSERT INTO users(id, lastname, firstname, email, phone, password, created_at, account_type, adresse_id, longitude, latitude) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
                 $req->execute($client);
             } catch(PDOException $e) {
                 var_dump($e->getMessage());

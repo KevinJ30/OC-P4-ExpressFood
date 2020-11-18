@@ -74,7 +74,7 @@ class FillCommandes extends AbstractFill {
                 $i + 1,
                 rand(1, 3),
                 rand(1, 10),
-                rand(1, 10)
+                $i + 1
             ];
             
             try{
